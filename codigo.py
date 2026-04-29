@@ -143,21 +143,25 @@ while dinheiro > 0:
       break
     elif play == "check":
         os.system("cls")
+        print("trocando de player")
+        time.sleep(3)
+
     elif play== "raise":
         aumento = int(input("quanto gostaria de aumentar? "))
         pot += aumento
         os.system("cls")
 # 2 cartas do jogador 2
     if aumento > 0 :
+        print("PLAYER 2")
         print('PLAYER 1 AUMENTOU:', aumento)
         for i in range(2):
-            print("PLAYER 2")
+    
             carta = baralho.pop()
             mao_jogador2.append(carta)
             print("Sua carta:", carta)
         print("sua mão é ", mao_jogador2)
         
-        play = input("fold or check")
+        play = input("fold or pagar")
         if play == "fold":
             print("player 1 ganhou por desistencia")
             time.sleep(2)
@@ -166,7 +170,8 @@ while dinheiro > 0:
         elif play == "pagar":
             os.system("cls")
             pot += aumento
-            
+            print("passando pro outro lado")
+            time.sleep(3)            
     else:
         for i in range(2):
             carta = baralho.pop()
@@ -186,8 +191,8 @@ while dinheiro > 0:
             pot += aumento
             os.system("cls")
             time.sleep(1)
-            print("player 2 aumentou",aumento," reais, gostaria de pagar ou desitir")
-            play = input()
+            print("player 2 aumentou",aumento," reais")
+            play = input("pagar ou fold?")
             if play == "pagar":
                 pot+= aumento
             elif play == "fold":
@@ -211,9 +216,15 @@ while dinheiro > 0:
       break
     elif play == "check":
         os.system("cls")
+        print("passando para o outro lado")
+        time.sleep(3)
     elif play == "raise":
         aumento =  int(input("quanto gostaria de aumentar?"))
         pot+= aumento
+        os.system("cls")
+        print("passando para o outro lado")
+        time.sleep(3)
+        os.system("cls")
     #PLAYER 2 *FLOP*
     if aumento > 0:
         print("player 1 aumentou", aumento,"e as cartas são:")
@@ -222,14 +233,148 @@ while dinheiro > 0:
         play == input("fold ou pagar?")
         if play == "pagar":
             pot += aumento
+            os.system("cls")
+            print("passando para o outro lado")
+            time.sleep(3)
+            os.system("cls")
         if play == "fold":
             print("player 1 ganhou por desistencia")
             time.sleep(2)
             break
     else:
-        
+        print("player 1 pulou a vez")
         print(mesa)
+        print (mao_jogador2)
+        play== input("check raise ou fold?" )
+        if play == "raise":
+            aumento = int(input("quanto gostaria de aumentar? "))
+            pot += aumento
+            os.system("cls")
+            print("passando para o outro lado")
+            time.sleep(3)
+            os.system("cls")
+            print("player 2 aumentou",aumento," reais, gostaria de pagar ou desitir")
+            play = input()
+            if play == "pagar":
+                pot+= aumento
+                os.system("cls")
+            elif play == "fold":
+                print("player 2 ganhou por desistencia")
+                time.sleep(1)
+                break
+  #### RIVER player 1 ####
+        print("player 1")
+        carta = baralho.pop
+        mesa.append(carta)
+        mao_jogador1.append(carta)
+        print("suas cartas são:", mao_jogador1)
+        play = str(input("check, fold ou raise?"))
+        if play =="fold": 
+            print("player 2 ganhou por desistencia")
+            time.sleep(1)
+            break
+        elif play =="raise":
+            aumento = int(input("quanto gostaria de aumentar?:"))
+            pot += aumento
+        elif play == "check":
+            aumento = 0
+            os.system("csl")
+######## player 2 river #########
+        if aumento >0:
+            print("player 1 aumentou:", aumento, "reais")
+            carta = baralho.pop
+            mesa.append(carta)
+            mao_jogador2.append(carta)
+            print("suas cartas são:", mao_jogador2)
+            play = input("fold ou pagar?")
+            if play == "fold":
+                print("player 1 ganhou por desisstencia")
+                time.sleep(1)
+                break
+            elif play == "pagar":
+                pot+= aumento
+        else:
+            print("player 1 checkou")
+            carta = baralho.pop
+            mesa.append(carta)
+            mao_jogador2.append(carta)
+            print("suas cartas são:", mao_jogador2)
+            play = input ("check fold ou raise?")
+            if play == "raise":
+                aumento = input("quanto gostaria de aumentar?")
+                pot+=aumento
+                os.system("cls")
+                print("player 1")
+                print("player 2 aumentou",aumento, "pague ou fold")
+                play = input("pagar ou foldar?")
+                if play == "pagar":
+                    pot+= aumento
+                else:
+                    print("player 2 ganhou por desistencia")
+                    time.sleep(1)
+                    break
+ #### player 1 turn ####
+        print("\nTURN")
+        print("player 1")
+        carta = baralho.pop
+        mesa.append(carta)
+        mao_jogador1.append(carta)
+        print("suas cartas são:", mao_jogador1)
+        play = str(input("check, fold ou raise?"))
+        if play =="fold": 
+            print("player 2 ganhou por desistencia")
+            time.sleep(1)
+            break
+        elif play =="raise":
+            aumento = int(input("quanto gostaria de aumentar?:"))
+            pot += aumento
+        elif play == "check":
+            aumento = 0
+            os.system("csl")
 
+######## player 2 turn #########
+        print("\nTURN")
+        if aumento >0:
+            print("player 1 aumentou:", aumento, "reais")
+            carta = baralho.pop
+            mesa.append(carta)
+            mao_jogador2.append(carta)
+            print("suas cartas são:", mao_jogador2)
+            play = input("fold ou pagar?")
+            if play == "fold":
+                print("player 1 ganhou por desisstencia")
+                time.sleep(1)
+                break
+            elif play == "pagar":
+                pot+= aumento
+        else:
+            print("player 1 checkou")
+            carta = baralho.pop
+            mesa.append(carta)
+            mao_jogador2.append(carta)
+            print("suas cartas são:", mao_jogador2)
+            play = input ("check fold ou raise?")
+            if play == "raise":
+                aumento = input("quanto gostaria de aumentar?")
+                pot+=aumento
+                os.system("cls")
+                print("player 1")
+                print("player 2 aumentou",aumento, "pague ou fold")
+                play = input("pagar ou foldar?")
+                if play == "pagar":
+                    pot+= aumento
+                else:
+                    print("player 2 ganhou por desistencia")
+                    time.sleep(1)
+                    break
+        
+  
+  
+  
+  
+  
+  
+  
   # junta tudo (7 cartas)
         todas_cartas1 = mao_jogador1 + mesa
         total_cartas2 = mao_jogador2 + mesa
